@@ -1,27 +1,17 @@
-import React, {FC, useEffect, useState} from "react";
-import axios from "axios";
-import {Button} from "@mui/material";
+import React from "react";
+import {Route, Routes} from "react-router-dom";
+import Tours from "./features/Tours";
+import Prefetch from "./features/auth/Prefetch";
 
-type Tour = {
-  name: string
-  _id: string
-}
-
-const App: FC = () => {
-  const [tours, setTours] = useState<Tour[]>();
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/bands").then(data => setTours(data.data));
-  }, []);
-
+const App = () => {
   return (
-    <div>
-      {tours?.map((tour: Tour) => (
-        <li key={tour._id}>{tour.name}</li>
-      ))}
-      <Button variant="contained">Click me</Button>
-    </div>);
-
+    <Routes>
+      <Route path="/" element={<Prefetch/>}>
+        {/*public route*/}
+        <Route index element={<Tours/>}/>
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
