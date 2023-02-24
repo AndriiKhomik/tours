@@ -1,18 +1,18 @@
-import {TypographyOptions} from "@mui/material/styles/createTypography";
-import {createTheme, PaletteOptions} from "@mui/material";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
+import { createTheme, PaletteOptions } from "@mui/material";
 
 export const baseFont = [
-  "\"Open Sans\"",
-  "\"Helvetica\"",
-  "\"Arial\"",
-  "\"sans-serif",
+  '"Open Sans"',
+  '"Helvetica"',
+  '"Arial"',
+  '"sans-serif',
 ].join(", ");
 
 export const titlesFont = [
-  "\"Ubuntu\"",
-  "\"Helvetica\"",
-  "\"Arial\"",
-  "\"sans-serif\"",
+  '"Ubuntu"',
+  '"Helvetica"',
+  '"Arial"',
+  '"sans-serif"',
 ].join(", ");
 
 const htmlFontSize = 16;
@@ -91,12 +91,12 @@ const palette: PaletteOptions = {
     main: "#9C27B0",
   },
   text: {
-    primary: "#2D2C30",
-    secondary: "#73777C",
+    primary: "#FFFFFF",
+    secondary: "#dbdbdb",
   },
   background: {
-    // default: "#F5F7f6",
-    default: "#FFFF00",
+    default: "#282828",
+    paper: "#282828",
   },
   error: {
     main: "#ed6f00",
