@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { StyledEngineProvider, ThemeProvider } from "@mui/material";
+import {
+  GlobalStyles,
+  StyledEngineProvider,
+  ThemeProvider,
+} from "@mui/material";
 import theme from "./theme";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
@@ -15,6 +19,9 @@ root.render(
   <React.StrictMode>
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
+        <GlobalStyles
+          styles={{ body: { backgroundColor: "#282828", color: "#FFFFFF" } }}
+        />
         <Provider store={store}>
           <I18nProvider locale={LOCALES.ENGLISH}>
             <BrowserRouter>
