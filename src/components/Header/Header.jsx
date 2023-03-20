@@ -18,7 +18,7 @@ const Nav = styled("div")(({ theme }) => ({
 const NavButtonStyled = styled(Button)(({ theme }) => ({
   color: theme.palette.text.primary,
   "&:hover": {
-    border: `1px solid ${theme.palette.text.primary}`,
+    // border: `1px solid ${theme.palette.text.primary}`,
   },
 }));
 
