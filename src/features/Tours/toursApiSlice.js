@@ -60,6 +60,14 @@ export const toursApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: (result, error, arg) => [{ type: "Tour", id: arg.id }],
     }),
+    addMark: builder.mutation({
+      query: (tour) => ({
+        url: "/tours",
+        method: "PATCH",
+        body: tour,
+      }),
+      invalidatesTags: (result, error, arg) => [{ type: "Tour", id: "LIST" }],
+    }),
   }),
 });
 
@@ -67,7 +75,8 @@ export const {
   useGetToursQuery,
   useAddNewTourMutation,
   useUpdateTourMutation,
-  useDeleteTourQuery,
+  useDeleteTourMutation,
+  useAddMarkMutation,
 } = toursApiSlice;
 
 export const selectTourResult = toursApiSlice.endpoints.getTours.select();

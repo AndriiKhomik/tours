@@ -34,7 +34,7 @@ const Tour = ({ tourId }) => {
             <FormattedMessage id="tour.description" /> {tour.tourDescription}
           </Typography>
           <Typography>
-            <FormattedMessage id="tour.artist" /> {tour.band}
+            <FormattedMessage id="tour.artist" /> {tour.bandName}
           </Typography>
           {/* <img src={tour.image} alt={tour.image} /> */}
           <Typography variant="h6">

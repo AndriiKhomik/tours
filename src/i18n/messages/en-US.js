@@ -14,5 +14,6 @@ export default {
     "tour.artist": "Artist:",
     "tour.city.title": "Tours through cities:",
     "reviews.total": "review(s)",
+    "toaster.add.review.success": "Review was added successfully",
   },
 };
