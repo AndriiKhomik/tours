@@ -1,21 +1,31 @@
 import React from "react";
 import { useFormik } from "formik";
-import { Button, TextField } from "@mui/material";
+import {
+  Button,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  TextField,
+} from "@mui/material";
 import { FormattedMessage } from "react-intl";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
 import Header from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
+import usePersist from "../../hooks/usePersist";
 
 const Login = () => {
   const dispatch = useDispatch();
   const [login] = useLoginMutation();
   const navigate = useNavigate();
+  const [persist, setPersist] = usePersist();
+
   const formik = useFormik({
     initialValues: {
       name: "",
       password: "",
+      isChecked: false,
     },
     onSubmit: async (values, { resetForm }) => {
       try {
@@ -48,6 +58,19 @@ const Login = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox
+                id="trustDevice"
+                name="trustDevice"
+                value={persist}
+                onChange={() => setPersist((prev) => !prev)}
+              />
+            }
+            label={<FormattedMessage id="registration.form.trust.device" />}
+          />
+        </FormGroup>
         <Button type="submit" variant="contained">
           <FormattedMessage id="registration.form.submit" />
         </Button>

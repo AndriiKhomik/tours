@@ -15,5 +15,6 @@ export default {
     "tour.city.title": "Tours through cities:",
     "reviews.total": "review(s)",
     "toaster.add.review.success": "Review was added successfully",
+    "registration.form.trust.device": "Trust this device",
   },
 };

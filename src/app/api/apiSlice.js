@@ -14,7 +14,7 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-const baseQueryWithReath = async (args, api, extraOptions) => {
+const baseQueryWithReauth = async (args, api, extraOptions) => {
   // console.log(args); // request url, method, body
   // console.log(api); // signal, dispatch, getState()
   // console.log(extraOptions); // custom like {shout: true}
@@ -32,7 +32,6 @@ const baseQueryWithReath = async (args, api, extraOptions) => {
       result = await baseQuery(args, api, extraOptions);
     } else {
       if (refreshResult?.error?.status === 403) {
-        // @ts-ignore
         refreshResult.error.data.message = "Your login has expired";
       }
       return refreshResult;
@@ -42,7 +41,7 @@ const baseQueryWithReath = async (args, api, extraOptions) => {
 };
 
 export const apiSlice = createApi({
-  baseQuery: baseQueryWithReath,
+  baseQuery: baseQueryWithReauth,
   tagTypes: ["Tour", "User"],
   endpoints: (builder) => ({}),
 });
