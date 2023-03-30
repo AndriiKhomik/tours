@@ -11,7 +11,7 @@ const styles = {
   gap: "16px",
 };
 
-const Tours = () => {
+const ToursList = () => {
   const {
     data: tours,
     isLoading,
@@ -44,4 +44,4 @@ const Tours = () => {
   );
 };
 
-export default Tours;
+export default ToursList;

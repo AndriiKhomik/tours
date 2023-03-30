@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import Tour from "../../components/Tour";
+import Tour from "./Tour";
 
 const TourPage = () => {
   return (

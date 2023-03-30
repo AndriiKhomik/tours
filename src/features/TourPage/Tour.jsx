@@ -11,10 +11,7 @@ import {
 } from "@mui/material";
 import { FormattedMessage } from "react-intl";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  useAddMarkMutation,
-  useGetToursQuery,
-} from "../../features/Tours/toursApiSlice";
+import { useAddMarkMutation, useGetToursQuery } from "../Tours/toursApiSlice";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
