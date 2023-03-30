@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Tours from "./features/Tours/Tours";
+import ToursList from "./features/Tours";
 import Login from "./features/auth/Login";
-import PersonalPage from "./pages/PersonalPage";
-import TourPage from "./pages/TourPage";
+import PersonalPage from "./features/PersonalPage";
+import TourPage from "./features/TourPage";
 import PersistLogin from "./features/auth/PersistLogin";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
       <Route element={<PersistLogin />}>
         {/*public route*/}
         <Route path="/">
-          <Route index element={<Tours />} />
+          <Route index element={<ToursList />} />
           <Route path="/tours/:id" element={<TourPage />} />
         </Route>
         <Route path="login" element={<Login />} />
