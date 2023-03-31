@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, IconButton, styled, Tooltip } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AccountCircle } from "@mui/icons-material";
 import { FormattedMessage } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,11 +33,17 @@ const NavButton = ({ to, label }) => {
 const Header = () => {
   const auth = useSelector(selectCurrentToken);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logOut(null));
+    navigate("/");
+  };
 
   return (
     <Nav>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <NavButton to="/" label="main.navigation.home" />
+        <NavButton to="/tours" label="main.navigation.home" />
         {!auth && <NavButton to="/login" label="main.navigation.login" />}
       </Box>
       <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -51,10 +57,7 @@ const Header = () => {
           </NavLink>
         )}
         {auth && (
-          <IconButton
-            sx={{ color: "white" }}
-            onClick={() => dispatch(logOut(null))}
-          >
+          <IconButton sx={{ color: "white" }} onClick={handleLogout}>
             <LogoutIcon />
           </IconButton>
         )}

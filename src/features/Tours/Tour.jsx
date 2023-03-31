@@ -24,7 +24,7 @@ const Tour = ({ tourId }) => {
   });
 
   return (
-    <StyledLink to={`tours/${tour.id}`}>
+    <StyledLink to={tour.id}>
       <Card sx={{ border: "1px solid #fff", borderRadius: "8px" }}>
         <CardContent>
           <Typography>

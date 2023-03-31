@@ -16,5 +16,9 @@ export default {
     "reviews.total": "review(s)",
     "toaster.add.review.success": "Review was added successfully",
     "registration.form.trust.device": "Trust this device",
+    "welcome.title": "Welcome to tours application",
+    "login.button": "Please login",
+    "page.not.found": "Page not found",
+    "redirect.home": "Go back",
   },
 };

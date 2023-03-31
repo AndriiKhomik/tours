@@ -32,7 +32,7 @@ const Login = () => {
         const { accessToken } = await login({ ...values }).unwrap();
         dispatch(setCredentials({ accessToken }));
         resetForm();
-        navigate("/");
+        navigate("/tours");
       } catch (e) {
         console.log(e);
       }
@@ -66,6 +66,7 @@ const Login = () => {
                 name="trustDevice"
                 value={persist}
                 onChange={() => setPersist((prev) => !prev)}
+                defaultChecked
               />
             }
             label={<FormattedMessage id="registration.form.trust.device" />}

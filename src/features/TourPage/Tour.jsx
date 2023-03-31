@@ -60,7 +60,7 @@ const Tour = () => {
           <Typography variant="h4">
             <FormattedMessage id="tour.title" /> {tour?.title}
           </Typography>
-          <IconButton color="inherit" onClick={() => navigate("/")}>
+          <IconButton color="inherit" onClick={() => navigate("/tours")}>
             <HighlightOffIcon fontSize="large" />
           </IconButton>
         </Box>
