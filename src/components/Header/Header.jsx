@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectCurrentToken } from "../../features/auth/authSlice";
 import LogoutIcon from "@mui/icons-material/Logout";
 import useAuth from "../../hooks/useAuth";
+import usePersist from "../../hooks/usePersist";
 
 const Nav = styled("div")(({ theme }) => ({
   display: "flex",
@@ -43,8 +44,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { name } = useAuth();
+  const [persist, setPersist] = usePersist();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await setPersist(false);
     dispatch(logOut(null));
     navigate("/");
   };

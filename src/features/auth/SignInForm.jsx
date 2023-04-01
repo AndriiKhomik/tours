@@ -37,16 +37,18 @@ const SignInForm = () => {
     initialValues: {
       name: "Metallica",
       password: "!Pass1",
-      isChecked: true,
+      trustDevice: false,
     },
     onSubmit: async (values, { resetForm }) => {
       try {
+        setPersist(values.trustDevice);
         const { accessToken } = await login({ ...values }).unwrap();
         dispatch(setCredentials({ accessToken }));
         resetForm();
         navigate("/tours");
       } catch (e) {
         console.log(e);
+        setPersist(false);
       }
     },
   });
@@ -90,8 +92,7 @@ const SignInForm = () => {
               name="trustDevice"
               color="default"
               value={persist}
-              onChange={() => setPersist((prev) => !prev)}
-              defaultChecked
+              onChange={formik.handleChange}
             />
           }
           label={

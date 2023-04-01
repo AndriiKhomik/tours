@@ -38,7 +38,7 @@ const SignUpForm = () => {
       name: "",
       email: "",
       password: "",
-      isChecked: true,
+      isChecked: false,
     },
     onSubmit: async (values, { resetForm }) => {
       try {
