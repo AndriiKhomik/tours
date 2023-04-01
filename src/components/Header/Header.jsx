@@ -1,11 +1,19 @@
 import React from "react";
-import { Box, Button, IconButton, styled, Tooltip } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  styled,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AccountCircle } from "@mui/icons-material";
 import { FormattedMessage } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectCurrentToken } from "../../features/auth/authSlice";
 import LogoutIcon from "@mui/icons-material/Logout";
+import useAuth from "../../hooks/useAuth";
 
 const Nav = styled("div")(({ theme }) => ({
   display: "flex",
@@ -34,6 +42,7 @@ const Header = () => {
   const auth = useSelector(selectCurrentToken);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { name } = useAuth();
 
   const handleLogout = () => {
     dispatch(logOut(null));
@@ -43,16 +52,15 @@ const Header = () => {
   return (
     <Nav>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <NavButton to="/tours" label="main.navigation.home" />
+        <NavButton to="/tours" label="main.navigation.tours" />
         {!auth && <NavButton to="/login" label="main.navigation.login" />}
       </Box>
       <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Typography>{name}</Typography>
         {auth && (
           <NavLink to="/personalPage">
             <IconButton sx={{ color: "white" }}>
-              <Tooltip title={<FormattedMessage id="tooltip.userMenu" />}>
-                <AccountCircle />
-              </Tooltip>
+              <AccountCircle />
             </IconButton>
           </NavLink>
         )}
